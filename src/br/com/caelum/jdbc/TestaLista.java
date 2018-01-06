@@ -1,5 +1,7 @@
 package br.com.caelum.jdbc;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import br.com.caelum.jdbc.dao.ContatoDao;
@@ -15,7 +17,10 @@ public class TestaLista {
 			System.out.println("Nome:	" + contato.getNome());
 			System.out.println("Email:	" + contato.getEmail());
 			System.out.println("Endereço:	" + contato.getEndereco());
-			System.out.println("Data	de	Nascimento:	" + contato.getDataNascimento().getTime() + "\n");
+			SimpleDateFormat formatter1 = new SimpleDateFormat("dd/MM/yyyy");
+			String formatada = formatter1.format(contato.getDataNascimento().getTime());
+			System.out.println("Data	de	Nascimento:	" + formatada+ "\n");
+			
 		}
 	}
 }
