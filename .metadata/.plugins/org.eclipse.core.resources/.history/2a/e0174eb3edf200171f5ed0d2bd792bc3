@@ -1,0 +1,31 @@
+package br.com.caelum.jdbc;
+
+import java.sql.Date;
+import java.time.Month;
+import java.util.Calendar;
+
+import br.com.caelum.jdbc.dao.ContatoDao;
+import br.com.caelum.jdbc.modelo.Contato;
+
+public class TestaInsere {
+	
+	public static void main(String[] args) {
+		
+		Contato	contato	=	new	Contato();
+		contato.setNome("Leandro");
+		contato.setEmail("leandro.jorge19@gmail.com");
+		contato.setEndereco("av brasil 1598 cotia");
+		Calendar data = Calendar.getInstance().set(1986, 10, 03);
+		contato.setDataNascimento(Calendar.getInstance().set(1986, 10, 03));
+				
+				//.set(1986, Month.OCTOBER, 03));
+		//	grave	nessa	conexão!!!
+		ContatoDao	dao	=	new	ContatoDao();
+		
+		
+		//	método	elegante
+		dao.adiciona(contato);
+		System.out.println("Gravado!");
+	}
+
+}
